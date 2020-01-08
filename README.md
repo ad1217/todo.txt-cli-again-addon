@@ -47,6 +47,18 @@ line.
     10 (A) Do important things due:2001-01-11 t:2001-01-11 again:+5
     TODO: 10 added.
 
+If a `count:` tag is present, it's value will be incremented every
+time again is called on that todo item.
+
+    $ todo.sh list 9
+    (A) Do important things count:0 t:2001-01-01 again:+5
+
+    $ todo.sh again 9
+    9 x 2001-01-03 (A) Do important things count:0 t:2001-01-01 again:+5
+    TODO: 9 marked as done.
+    10 (A) Do important things count:1 t:2001-01-06 again:+5
+    TODO: 10 added.
+
 ## Filter
 
 In order to hide tasks whose threshold date are set to a future day, point the `TODO_TXT_FINAL_FILTER` environment variable to `againFilter.sh` in e.g. your `.bashrc`:
